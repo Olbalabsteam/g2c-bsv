@@ -30,16 +30,16 @@ module.exports = {
       "crypto": require.resolve("crypto-browserify"),
     }
   },
-  entry: path.join(__dirname, '/index.js'),
+  entry: path.join(__dirname, '/lib/ecies/electrum-ecies.js'),
   // externals: {
   //   crypto: 'crypto'
   // },
   //experiments: { outputModule: true },
   //externalsType: "commonjs",
   output: {
-    library: 'bsv',
+    library: 'bsvEcies',
     path: path.join(__dirname, '/'),
-    filename: 'bsv.min.js'
+    filename: 'bsv-ecies.min.js'
   },
   mode: 'production',
   optimization: {
