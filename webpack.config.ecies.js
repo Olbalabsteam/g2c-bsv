@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+var path = require('path')
 
 module.exports = {
   plugins: [
@@ -12,6 +13,11 @@ module.exports = {
   ],
   externals: {
     '../../': 'bsv'
+  },
+  output: {
+    library: 'bsvEcies',
+    path: path.join(__dirname, '/'),
+    filename: 'bsv-ecies.min.js'
   },
   mode: 'production'
 }

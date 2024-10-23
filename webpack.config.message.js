@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+var path = require('path')
 
 module.exports = {
   plugins: [
@@ -12,6 +13,11 @@ module.exports = {
   ],
   externals: {
     '../../': 'bsv'
+  },
+  output: {
+    library: 'bsvMessage',
+    path: path.join(__dirname, '/'),
+    filename: 'bsv-message.min.js'
   },
   mode: 'production'
 }

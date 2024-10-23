@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+var path = require('path')
 
 module.exports = {
   plugins: [
@@ -13,5 +14,10 @@ module.exports = {
   externals: {
     '../../': 'bsv'
   },
-  mode: 'production'
+  mode: 'production',
+  output: {
+    library: 'bsvMnemonic',
+    path: path.join(__dirname, '/'),
+    filename: 'bsv-mnemonic.min.js'
+  },
 }
