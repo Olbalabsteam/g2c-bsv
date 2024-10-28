@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const TerserPlugin = require('terser-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 var path = require('path')
 
@@ -19,5 +20,17 @@ module.exports = {
     path: path.join(__dirname, '/'),
     filename: 'bsv-message.min.js'
   },
-  mode: 'production'
+  mode: 'production',
+  optimization: {
+    innerGraph: false, // THIS BREAKS COMPILED CODE IF SET TO 'true'
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false, //want comments inline
+        terserOptions: {
+          compress: { defaults: true },
+          // mangle: true,
+        }
+      })],
+  },
 }
