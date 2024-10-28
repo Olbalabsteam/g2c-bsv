@@ -16,3 +16,5 @@ report
 .DS_Store
 
 .nyc_output
+
+package-lock.json
