@@ -23,12 +23,12 @@ module.exports = {
   },
   optimization: {
     innerGraph: false, // THIS BREAKS COMPILED CODE IF SET TO 'true'
-    minimize: true,
+    minimize: false,
     minimizer: [
       new TerserPlugin({
         extractComments: false, //want comments inline
         terserOptions: {
-          compress: { defaults: true },
+          compress: { defaults: false },
           // mangle: true,
         }
       })],
